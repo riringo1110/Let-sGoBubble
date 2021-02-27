@@ -15,6 +15,8 @@
 		E00137EA25E7F1B800003077 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E00137E825E7F1B800003077 /* LaunchScreen.storyboard */; };
 		E00137F525E7F1B800003077 /* Let_sGoBubbleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00137F425E7F1B800003077 /* Let_sGoBubbleTests.swift */; };
 		E001380025E7F1B800003077 /* Let_sGoBubbleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00137FF25E7F1B800003077 /* Let_sGoBubbleUITests.swift */; };
+		E001381425E7F3A100003077 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E001381325E7F3A100003077 /* GameViewController.swift */; };
+		E033670025E980240059D87F /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03366FF25E980240059D87F /* ResultViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		E00137FB25E7F1B800003077 /* Let'sGoBubbleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Let'sGoBubbleUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E00137FF25E7F1B800003077 /* Let_sGoBubbleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Let_sGoBubbleUITests.swift; sourceTree = "<group>"; };
 		E001380125E7F1B800003077 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E001381325E7F3A100003077 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		E03366FF25E980240059D87F /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +106,8 @@
 				E00137DD25E7F1B700003077 /* AppDelegate.swift */,
 				E00137DF25E7F1B700003077 /* SceneDelegate.swift */,
 				E00137E125E7F1B700003077 /* ViewController.swift */,
+				E001381325E7F3A100003077 /* GameViewController.swift */,
+				E03366FF25E980240059D87F /* ResultViewController.swift */,
 				E00137E325E7F1B700003077 /* Main.storyboard */,
 				E00137E625E7F1B800003077 /* Assets.xcassets */,
 				E00137E825E7F1B800003077 /* LaunchScreen.storyboard */,
@@ -258,6 +264,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E033670025E980240059D87F /* ResultViewController.swift in Sources */,
+				E001381425E7F3A100003077 /* GameViewController.swift in Sources */,
 				E00137E225E7F1B700003077 /* ViewController.swift in Sources */,
 				E00137DE25E7F1B700003077 /* AppDelegate.swift in Sources */,
 				E00137E025E7F1B700003077 /* SceneDelegate.swift in Sources */,
