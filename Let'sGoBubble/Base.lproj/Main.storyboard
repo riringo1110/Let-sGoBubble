@@ -109,10 +109,18 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vHa-ms-0mN">
+                                <rect key="frame" x="328" y="74" width="19" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="qj1-Ao-694"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="vHa-ms-0mN" firstAttribute="top" secondItem="qj1-Ao-694" secondAttribute="top" constant="30" id="5rg-zS-LDB"/>
+                            <constraint firstItem="qj1-Ao-694" firstAttribute="trailing" secondItem="vHa-ms-0mN" secondAttribute="trailing" constant="67" id="RDJ-Pk-i4z"/>
                             <constraint firstItem="3wi-GG-xai" firstAttribute="leading" secondItem="qj1-Ao-694" secondAttribute="leading" id="UrJ-qj-njs"/>
                             <constraint firstItem="vGu-Av-wVv" firstAttribute="top" secondItem="qj1-Ao-694" secondAttribute="top" constant="30" id="ggs-s9-KD9"/>
                             <constraint firstItem="3wi-GG-xai" firstAttribute="top" secondItem="GyZ-MV-6EY" secondAttribute="top" id="kr2-N7-s0J"/>
@@ -123,6 +131,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="d9o-yg-mzq"/>
                     <connections>
+                        <outlet property="backgroundImageView" destination="3wi-GG-xai" id="w0d-05-Gpz"/>
                         <outlet property="bubble1" destination="Okp-9h-eJ3" id="anG-Ca-oNh"/>
                         <outlet property="bubble10" destination="mqH-M8-3yC" id="TMc-se-24P"/>
                         <outlet property="bubble2" destination="WId-t8-JSx" id="tsM-NK-kNm"/>
@@ -134,17 +143,17 @@
                         <outlet property="bubble8" destination="7tz-pc-b1V" id="hpc-XJ-YBp"/>
                         <outlet property="bubble9" destination="gIf-ej-3PV" id="WYQ-no-EB3"/>
                         <outlet property="timerLabel" destination="vGu-Av-wVv" id="qUM-Ss-BfT"/>
-                        <segue destination="DWJ-Hm-yhm" kind="presentation" modalPresentationStyle="fullScreen" id="mV5-7f-kje"/>
+                        <segue destination="DWJ-Hm-yhm" kind="presentation" identifier="toResult" modalPresentationStyle="fullScreen" id="mV5-7f-kje"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6HL-6B-fij" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="750.72463768115949" y="93.75"/>
         </scene>
-        <!--View Controller-->
+        <!--Result View Controller-->
         <scene sceneID="8BX-Kt-1nh">
             <objects>
-                <viewController id="DWJ-Hm-yhm" sceneMemberID="viewController">
+                <viewController id="DWJ-Hm-yhm" customClass="ResultViewController" customModule="Let_sGoBubble" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WBg-Hz-MdP">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

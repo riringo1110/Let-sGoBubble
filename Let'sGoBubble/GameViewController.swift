@@ -5,6 +5,7 @@
 //  Created by Ririko Nagaishi on 2021/02/26.
 //
 
+import AVFoundation
 import UIKit
 import CoreMotion
 
@@ -21,36 +22,38 @@ class GameViewController: UIViewController {
     @IBOutlet var bubble9: UIImageView!
     @IBOutlet var bubble10: UIImageView!
     
+
     @IBOutlet var timerLabel: UILabel!
-    
-    var imageName: String = "bubble"
-    
-    var tapiArray = ["bubble1", "bubble2", "bubble3", "bubble4", "bubble5", "bubble6", "bubble7", "bubble8", "bubble9", "bubble10"]
-    
-    var timeCount: Int = 60
-    var timer: Timer!
+    @IBOutlet var backgroundImageView: UIImageView!
     
     let motionManager = CMMotionManager()
     
     var accelerationX: Double = 0.0
     var accelerationY: Double = 0.0
     var accelerationZ: Double = 0.0
+    var velocityY: Double = 0.0
+    var count: Int = 0
+    
+    var bubbleArray = [UIImageView]()
+    
+    var audioPlayer: AVAudioPlayer!
+    
+    var timeCount: Int = 60
+    var timer: Timer!
+    
+    var score: Int = 0
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //for bubble1. tapiokanokazubunndake,hairetunonakanoua
         
-        //for tapiArray[]
-//
-        for i in 0...10 {
-
-            bubbleMove(bubbleImageView: )
+        bubbleArray = [bubble1, bubble2, bubble3]
+        
+        for bubble in bubbleArray{
+            bubbleMove(bubbleImageView: bubble)
         }
-//
-        //↑for文にすることでbubble1234...って自動にやってくれる
         
-        bubbleMove(bubbleImageView: bubble1)
-        bubbleMove2(bubbleImageView: bubble2)
+       
         //timerの設定
         timer = Timer.scheduledTimer(
             timeInterval: 1.0,
@@ -59,24 +62,40 @@ class GameViewController: UIViewController {
             userInfo: nil,
             repeats: true)
         
-        
     }
-        
+    
     //1秒ごとにタイマーラベル更新
     @objc func countDown() {
         
         timeCount = timeCount - 1
-//        print("\(timeCount)")
         timerLabel.text = String(timeCount)
-    
-        //self.performSegue(withIdentifier: "toResult", sender: nil)
-        bubbleMove(bubbleImageView: bubble1)
-        bubbleMove2(bubbleImageView: bubble2)
+       
+        //background切り替え
+        if timeCount <= 45 {
+            backgroundImageView.image = UIImage(named: "bg_45")
+        }
+        if timeCount <= 30{
+            backgroundImageView.image = UIImage(named: "bg_30")
+        }
+        if timeCount <= 15{
+            backgroundImageView.image = UIImage(named: "bg_15")
+        }
+        if timeCount == 0{
+            backgroundImageView.image = UIImage(named: "bg_0")
+        }
+        if timeCount == 0{
+            Thread.sleep(forTimeInterval: 3.0)
+            self.performSegue(withIdentifier: "toResult", sender: nil)
+        }
+        
+        for bubble in bubbleArray{
+            bubbleMove(bubbleImageView: bubble)
+        }
     }
     
     
     func bubbleMove(bubbleImageView: UIImageView){
-        var place:Float!
+       
         if motionManager.isAccelerometerAvailable {
             //intervalの設定（sec）
             motionManager.accelerometerUpdateInterval = 0.01
@@ -85,46 +104,11 @@ class GameViewController: UIViewController {
                 
                 self.accelerationX = (data?.acceleration.x)!
                 self.accelerationY = (data?.acceleration.y)!
+                self.accelerationZ = (data?.acceleration.z)!
                 bubbleImageView.center.x += CGFloat(self.accelerationX*20)
-                bubbleImageView.center.y +=
-                    CGFloat(self.accelerationY*20)
-                place = Float(bubbleImageView.center.x)
-                 print(Float(bubbleImageView.center.x))
+                bubbleImageView.center.y += CGFloat(self.accelerationY*20)
                 
-                if bubbleImageView.frame.origin.x < 20 {
-                    bubbleImageView.frame.origin.x = 20
-                }
-                
-                if bubbleImageView.frame.origin.x > 300 {
-                    bubbleImageView.frame.origin.x = 300
-                }
-                if bubbleImageView.frame.origin.y < 45 {
-                    bubbleImageView.frame.origin.y = 45
-                }
-                
-                if bubbleImageView.frame.origin.y > 770 {
-                    bubbleImageView.frame.origin.y = 770
-                }
-            }
-            
-        }
 
-    }
-    func bubbleMove2(bubbleImageView: UIImageView) {
-        if motionManager.isAccelerometerAvailable {
-            //intervalの設定（sec）
-            motionManager.accelerometerUpdateInterval = 0.01
-            
-            motionManager.startAccelerometerUpdates(to: OperationQueue.current!) {data,error in
-                
-                self.accelerationX = (data?.acceleration.x)!
-                self.accelerationY = (data?.acceleration.y)!
-                bubbleImageView.center.x += CGFloat(self.accelerationX*20)
-                bubbleImageView.center.y +=
-                    CGFloat(self.accelerationY*20)
-                print(Float(bubbleImageView.center.x))
-                
-                
                 if bubbleImageView.frame.origin.x < 20 {
                     bubbleImageView.frame.origin.x = 20
                 }
@@ -140,8 +124,22 @@ class GameViewController: UIViewController {
                     bubbleImageView.frame.origin.y = 770
                 }
             }
+            
         }
+        
     }
     
+    
+    
+   
+    
+    
+    
+    func scoreUpdate(){
+        
+        
+        
+        
+    }
 }
 
