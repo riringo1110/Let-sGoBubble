@@ -17,6 +17,11 @@
 		E001380025E7F1B800003077 /* Let_sGoBubbleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00137FF25E7F1B800003077 /* Let_sGoBubbleUITests.swift */; };
 		E001381425E7F3A100003077 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E001381325E7F3A100003077 /* GameViewController.swift */; };
 		E033670025E980240059D87F /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03366FF25E980240059D87F /* ResultViewController.swift */; };
+		E046E01C25EF8A360082E270 /* tekuteku arukou.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E046E01B25EF8A360082E270 /* tekuteku arukou.mp3 */; };
+		E046E02925EF99680082E270 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046E02825EF99680082E270 /* SoundManager.swift */; };
+		E046E03125EFA3850082E270 /* higedance.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E046E03025EFA3850082E270 /* higedance.mp3 */; };
+		E046E03725EFC81E0082E270 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046E03625EFC81E0082E270 /* ViewController.swift */; };
+		E046E04225EFCB1B0082E270 /* RuleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046E04125EFCB1B0082E270 /* RuleViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +58,11 @@
 		E001380125E7F1B800003077 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E001381325E7F3A100003077 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		E03366FF25E980240059D87F /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
+		E046E01B25EF8A360082E270 /* tekuteku arukou.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "tekuteku arukou.mp3"; sourceTree = SOURCE_ROOT; };
+		E046E02825EF99680082E270 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
+		E046E03025EFA3850082E270 /* higedance.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = higedance.mp3; sourceTree = SOURCE_ROOT; };
+		E046E03625EFC81E0082E270 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = ../ViewController.swift; sourceTree = "<group>"; };
+		E046E04125EFCB1B0082E270 /* RuleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuleViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,10 +118,15 @@
 				E00137E125E7F1B700003077 /* ViewController.swift */,
 				E001381325E7F3A100003077 /* GameViewController.swift */,
 				E03366FF25E980240059D87F /* ResultViewController.swift */,
+				E046E03625EFC81E0082E270 /* ViewController.swift */,
+				E046E02825EF99680082E270 /* SoundManager.swift */,
+				E046E04125EFCB1B0082E270 /* RuleViewController.swift */,
 				E00137E325E7F1B700003077 /* Main.storyboard */,
 				E00137E625E7F1B800003077 /* Assets.xcassets */,
 				E00137E825E7F1B800003077 /* LaunchScreen.storyboard */,
 				E00137EB25E7F1B800003077 /* Info.plist */,
+				E046E01B25EF8A360082E270 /* tekuteku arukou.mp3 */,
+				E046E03025EFA3850082E270 /* higedance.mp3 */,
 			);
 			path = "Let'sGoBubble";
 			sourceTree = "<group>";
@@ -237,8 +252,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E046E03125EFA3850082E270 /* higedance.mp3 in Resources */,
 				E00137EA25E7F1B800003077 /* LaunchScreen.storyboard in Resources */,
 				E00137E725E7F1B800003077 /* Assets.xcassets in Resources */,
+				E046E01C25EF8A360082E270 /* tekuteku arukou.mp3 in Resources */,
 				E00137E525E7F1B700003077 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -266,9 +283,12 @@
 			files = (
 				E033670025E980240059D87F /* ResultViewController.swift in Sources */,
 				E001381425E7F3A100003077 /* GameViewController.swift in Sources */,
+				E046E04225EFCB1B0082E270 /* RuleViewController.swift in Sources */,
 				E00137E225E7F1B700003077 /* ViewController.swift in Sources */,
 				E00137DE25E7F1B700003077 /* AppDelegate.swift in Sources */,
+				E046E03725EFC81E0082E270 /* ViewController.swift in Sources */,
 				E00137E025E7F1B700003077 /* SceneDelegate.swift in Sources */,
+				E046E02925EF99680082E270 /* SoundManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

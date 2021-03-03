@@ -1,12 +1,11 @@
 {
   "images" : [
     {
-      "filename" : "bubble2_03.png",
+      "filename" : "rule.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "awa.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

@@ -1,8 +1,8 @@
 //
-//  ViewController.swift
+//  RuleViewController.swift
 //  Let'sGoBubble
 //
-//  Created by Ririko Nagaishi on 2021/02/25.
+//  Created by Ririko on 2021/03/03.
 //
 
 import AVFoundation
