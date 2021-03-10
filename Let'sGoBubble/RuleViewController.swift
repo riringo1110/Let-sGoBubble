@@ -30,10 +30,6 @@ class ViewController: UIViewController {
        
         super.viewWillDisappear(animated)
         soundManager.stopBGM()
-        
-        
-    
-    
     }
 
 }

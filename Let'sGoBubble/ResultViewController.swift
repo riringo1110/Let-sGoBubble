@@ -8,22 +8,46 @@
 import UIKit
 
 class ResultViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    
+    @IBOutlet var resultLabel: UILabel!
+    @IBOutlet var latestLabel: UILabel!
+    
+    
+    let saveData: UserDefaults = UserDefaults.standard
+    
+    var score: Int = 0
+    var scoreArray = [Int]()
+    var latestScore: Int = 0
+    
+//    let vc = self.storyboard?.instantiateViewController(withIdentifier: "main")
+   
+    override func viewDidAppear(_ animated: Bool) {
+        
+        if saveData.object(forKey: "scoreArray") != nil {
+            scoreArray = saveData.array(forKey: "scoreArray") as! [Int]
+        
+            resultLabel.text = String("\(scoreArray.last!)secs")
+            
+            let penultimate = scoreArray.penultimate()
+            latestLabel.text = String("YOUR LATEST TIME: \(penultimate)secs")
+            
+        }
     }
     
+    
+    
+    
+    
+    
+    
+}
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+extension Array {
+  func penultimate() -> Element? {
+      if self.count < 2 {
+          return nil
+      }
+      let index = self.count - 2
+      return self[index]
+  }
 }

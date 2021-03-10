@@ -24,7 +24,11 @@ class GameViewController: UIViewController {
     @IBOutlet var bubble10: UIImageView!
     
     @IBOutlet var timerLabel: UILabel!
+    @IBOutlet var scoreLabel: UILabel!
     @IBOutlet var backgroundImageView: UIImageView!
+    
+    @IBOutlet var straw: UIImageView!
+    @IBOutlet var bottomOfStraw: UIView!
     
     let motionManager = CMMotionManager()
     
@@ -33,34 +37,47 @@ class GameViewController: UIViewController {
     
     
     var bubbleImageArray = [UIImageView]()
-    //
     var bubbleArray = [Bubble]()
     
-    //音楽再生のためのクラス
     let soundManager = SoundManager.shared
+    var audioPlayer : AVAudioPlayer! = nil
     
-    var timeCount: Int = 60
+    var timeCount: Int = 0
     var timer: Timer!
     
+    var strawMinX: CGFloat = 0.0
+    var strawMaxX: CGFloat = 0.0
+    var strawMinY: CGFloat = 0.0
+    var strawMaxY: CGFloat = 0.0
+    
     var score: Int = 0
+    var scoreArray = [Int]()
+    let saveData: UserDefaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let alert: UIAlertController = UIAlertController(
-            title: "ARE YOU READY?",
-            message: "スマホを水平にしてください",
-            preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title:"OK", style: .default, handler: nil))
-        present(alert,animated: true, completion: nil)
+        strawMinX = bottomOfStraw.frame.origin.x
+        strawMaxX = strawMinX + bottomOfStraw.frame.size.width
+        strawMinY = bottomOfStraw.frame.origin.y - bottomOfStraw.frame.size.height
+        strawMaxY = strawMinY + bottomOfStraw.frame.size.height
         
         bubbleImageArray = [bubble1, bubble2, bubble3, bubble4, bubble5, bubble6, bubble7, bubble8, bubble9, bubble10]
+        
+        //効果音再生準備
+        let soundFilePath = Bundle.main.path(forResource: "パパッ", ofType: "mp3")!
+        let sound:URL = URL(fileURLWithPath: soundFilePath)
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: sound, fileTypeHint:nil)
+        } catch {
+            print("AVAudioPlayerインスタンス作成でエラー")
+        }
+        audioPlayer.prepareToPlay()
         
         for bubble in bubbleImageArray {
             let boba = Bubble(imageView: bubble)
             bubbleArray.append(boba)
         }
-        
         
         bubbleMove()
         
@@ -77,43 +94,28 @@ class GameViewController: UIViewController {
     //1秒ごとにタイマーラベル更新
     @objc func countDown() {
         
-        timeCount = timeCount - 1
+        timeCount = timeCount + 1
         timerLabel.text = String(timeCount)
         
-        //            //background切り替え
-                            if timeCount <= 0 {
-//                                backgroundImageView.image = UIImage(named: "bg_0")
-                                RunLoop.current.run(until:Date.init(timeIntervalSinceNow: 3.0))
-                                self.performSegue(withIdentifier: "toResult", sender: nil)
-        //                    }else if timeCount <= 15{
-        //                        backgroundImageView.image = UIImage(named: "bg_15")
-        //                    }else if timeCount <= 30{
-        //                        backgroundImageView.image = UIImage(named: "bg_30")
-        //                    }else if timeCount <= 45{
-        //                        backgroundImageView.image = UIImage(named: "bg_45")
-                            }
     }
     
-    //画面が見えるようになる時に呼ばれる
-    override func viewWillAppear(_ animated: Bool) {
-       
-        
-        
-        super.viewWillAppear(animated)
-        soundManager.playBGM(fileName: "higedance")
-    }
-
+    //    //画面が見えるようになる時に呼ばれる
+    //    override func viewWillAppear(_ animated: Bool) {
+    //        super.viewWillAppear(animated)
+    //
+    //        soundManager.playBGM(fileName: "higedance")
+    //    }
+    //
     //画面が見えなくなるときに呼ばれる
     override func viewWillDisappear(_ animated: Bool) {
-        
         super.viewWillDisappear(animated)
         soundManager.stopBGM()
     }
-
+    //
     func bubbleMove(){
         
         if motionManager.isAccelerometerAvailable {
-            //intervalの設定
+            
             motionManager.accelerometerUpdateInterval = 0.01
             
             motionManager.startAccelerometerUpdates(to: OperationQueue.current!) { data,error in
@@ -121,17 +123,28 @@ class GameViewController: UIViewController {
                 self.accelerationX = (data?.acceleration.x)!
                 self.accelerationY = (data?.acceleration.y)!
                 
+                //いくつのタピが残っているか記憶するArray
+                var memoryArray = [Int]()
+                
+                
                 for i in 0..<self.bubbleArray.count {
+                    
                     let boba = self.bubbleArray[i]
                     let ransu = CGFloat.random(in: 1...10)
                     
                     boba.imageView.center.x += CGFloat(self.accelerationX * Double(ransu))
                     boba.imageView.center.y -= CGFloat(self.accelerationY * Double(ransu))
                     
+                    //タピの中心がbottomOfStrawの範囲にきたら
+                    if (boba.imageView.frame.origin.x + boba.imageView.frame.size.width / 2) >= self.strawMinX && (boba.imageView.frame.origin.x + boba.imageView.frame.size.width / 2) <= self.strawMaxX, (boba.imageView.frame.origin.y + boba.imageView.frame.size.height / 2) >= self.strawMinY && (boba.imageView.frame.origin.y + boba.imageView.frame.size.height / 2) <= self.strawMaxY {
+                        
+                        memoryArray.append(i)
+                    }
+                    
                     boba.imageView.center.x += boba.vx
                     boba.imageView.center.y += boba.vy
                     
-                    //画面端にいったらマイナス
+                    //画面端にいったら跳ね返る
                     if boba.imageView.frame.origin.x < 0 {
                         boba.imageView.frame.origin.x = 0
                         boba.vx = -boba.vx
@@ -144,50 +157,48 @@ class GameViewController: UIViewController {
                     
                     if boba.imageView.frame.origin.y < boba.imageView.frame.height * 3.5{
                         boba.imageView.frame.origin.y = boba.imageView.frame.height * 3.5
-//                        //15秒毎に水位下がる
-//                        DispatchQueue.main.asyncAfter(deadline: .now() + 15) {
-                            
-//                        }
-                        
                         boba.vy = -boba.vy
                     }
-                    
                     
                     if boba.imageView.frame.origin.y > self.view.frame.height - boba.imageView.frame.height {
                         boba.imageView.frame.origin.y = self.view.frame.height - boba.imageView.frame.height
                         boba.vy = -boba.vy
                     }
-                    if boba.imageView.frame.origin.x == 177, boba.imageView.frame.origin.y == 765{
-                        boba.imageView.removeFromSuperview()
                 }
+                
+                //タピオカを消す
+                for deleteIndex in memoryArray {
+                    self.bubbleArray[deleteIndex].imageView.removeFromSuperview()
+                    self.bubbleArray.remove(at: deleteIndex)
+                    // 効果音再生
+                    self.audioPlayer.currentTime = 0
+                    self.audioPlayer.play()
+                }
+                
+                if self.bubbleArray.count == 0 {
+                    self.performSegue(withIdentifier: "toResult", sender: nil)
+                    self.audioPlayer.stop()
+               
+                }
+                
+                //寝起きスコア
+                self.score = self.timeCount
+                self.scoreArray.append(self.score)
+                self.saveData.set(self.scoreArray, forKey: "scoreArray")
             }
         }
     }
-        
-        
-    func scoreUpdate(){
-        let boba = self.bubbleArray
-    }
-}
-
-
-
-//跳ね返しのクラス
-class Bubble {
-    var imageView: UIImageView
-    var vx: CGFloat = CGFloat.random(in: -3...3)
-    var vy: CGFloat = CGFloat.random(in: -3...3)
     
-    init (imageView: UIImageView) {
-        self.imageView = imageView
+    //跳ね返しのクラス
+    class Bubble {
+        var imageView: UIImageView
+        var vx: CGFloat = CGFloat.random(in: -3...3)
+        var vy: CGFloat = CGFloat.random(in: -3...3)
+        
+        init (imageView: UIImageView) {
+            self.imageView = imageView
+        }
     }
 }
 
-
-
-
-
-
-
-}
 
