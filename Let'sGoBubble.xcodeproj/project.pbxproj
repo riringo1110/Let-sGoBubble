@@ -62,14 +62,14 @@
 		E001380125E7F1B800003077 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E001381325E7F3A100003077 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		E03366FF25E980240059D87F /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
-		E046E01B25EF8A360082E270 /* tekuteku arukou.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "tekuteku arukou.mp3"; path = "Let'sGoBubble/tekuteku arukou.mp3"; sourceTree = SOURCE_ROOT; };
+		E046E01B25EF8A360082E270 /* tekuteku arukou.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "tekuteku arukou.mp3"; path = "Let'sGoBubble/sound/tekuteku arukou.mp3"; sourceTree = SOURCE_ROOT; };
 		E046E02825EF99680082E270 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
-		E046E03025EFA3850082E270 /* higedance.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = higedance.mp3; path = "Let'sGoBubble/higedance.mp3"; sourceTree = SOURCE_ROOT; };
-		E072F96025EFDCA90009ACBC /* RuleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RuleViewController.swift; path = ../RuleViewController.swift; sourceTree = "<group>"; };
+		E046E03025EFA3850082E270 /* higedance.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = higedance.mp3; path = "Let'sGoBubble/sound/higedance.mp3"; sourceTree = SOURCE_ROOT; };
+		E072F96025EFDCA90009ACBC /* RuleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RuleViewController.swift; path = game/RuleViewController.swift; sourceTree = "<group>"; };
 		E072F97125F123920009ACBC /* Let'sGoBubble.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Let'sGoBubble.entitlements"; sourceTree = "<group>"; };
 		E072F97325F123920009ACBC /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
 		E09167FB25F89AB800626CC6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		E091680025F8AFF200626CC6 /* パパッ.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "パパッ.mp3"; sourceTree = SOURCE_ROOT; };
+		E091680025F8AFF200626CC6 /* パパッ.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "パパッ.mp3"; path = "Let'sGoBubble/sound/パパッ.mp3"; sourceTree = SOURCE_ROOT; };
 		E0A2686625F496C20019B237 /* Alarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
 		E0A2686B25F4DCA60019B237 /* SetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetViewController.swift; sourceTree = "<group>"; };
 		E0A2687025F4DDD90019B237 /* SleepingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepingViewController.swift; sourceTree = "<group>"; };
@@ -129,22 +129,20 @@
 				E072F97125F123920009ACBC /* Let'sGoBubble.entitlements */,
 				E00137DD25E7F1B700003077 /* AppDelegate.swift */,
 				E00137DF25E7F1B700003077 /* SceneDelegate.swift */,
+				E00137E325E7F1B700003077 /* Main.storyboard */,
+				E00137E825E7F1B800003077 /* LaunchScreen.storyboard */,
 				E00137E125E7F1B700003077 /* ViewController.swift */,
 				E001381325E7F3A100003077 /* GameViewController.swift */,
 				E072F96025EFDCA90009ACBC /* RuleViewController.swift */,
 				E03366FF25E980240059D87F /* ResultViewController.swift */,
-				E046E02825EF99680082E270 /* SoundManager.swift */,
 				E0A2686B25F4DCA60019B237 /* SetViewController.swift */,
 				E0A2687025F4DDD90019B237 /* SleepingViewController.swift */,
 				E0A2686625F496C20019B237 /* Alarm.swift */,
 				E0A2687525F4E0720019B237 /* CurrentTime.swift */,
-				E00137E325E7F1B700003077 /* Main.storyboard */,
-				E00137E825E7F1B800003077 /* LaunchScreen.storyboard */,
+				E046E02825EF99680082E270 /* SoundManager.swift */,
+				E091680725F8F08D00626CC6 /* sound */,
 				E09167FB25F89AB800626CC6 /* Assets.xcassets */,
 				E00137EB25E7F1B800003077 /* Info.plist */,
-				E046E01B25EF8A360082E270 /* tekuteku arukou.mp3 */,
-				E046E03025EFA3850082E270 /* higedance.mp3 */,
-				E091680025F8AFF200626CC6 /* パパッ.mp3 */,
 			);
 			path = "Let'sGoBubble";
 			sourceTree = "<group>";
@@ -173,6 +171,16 @@
 				E072F97325F123920009ACBC /* ExternalAccessory.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E091680725F8F08D00626CC6 /* sound */ = {
+			isa = PBXGroup;
+			children = (
+				E046E01B25EF8A360082E270 /* tekuteku arukou.mp3 */,
+				E046E03025EFA3850082E270 /* higedance.mp3 */,
+				E091680025F8AFF200626CC6 /* パパッ.mp3 */,
+			);
+			path = sound;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

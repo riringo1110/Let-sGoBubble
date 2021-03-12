@@ -24,7 +24,6 @@ class GameViewController: UIViewController {
     @IBOutlet var bubble10: UIImageView!
     
     @IBOutlet var timerLabel: UILabel!
-    @IBOutlet var scoreLabel: UILabel!
     @IBOutlet var backgroundImageView: UIImageView!
     
     @IBOutlet var straw: UIImageView!
@@ -34,7 +33,6 @@ class GameViewController: UIViewController {
     
     var accelerationX: Double = 0.0
     var accelerationY: Double = 0.0
-    
     
     var bubbleImageArray = [UIImageView]()
     var bubbleArray = [Bubble]()
@@ -74,12 +72,12 @@ class GameViewController: UIViewController {
         }
         audioPlayer.prepareToPlay()
         
-        for bubble in bubbleImageArray {
-            let boba = Bubble(imageView: bubble)
-            bubbleArray.append(boba)
-        }
+//        for bubble in bubbleImageArray {
+//            let boba = Bubble(imageView: bubble)
+//            bubbleArray.append(boba)
+//        }
         
-        bubbleMove()
+//        bubbleMove()
         
         //timerの設定
         timer = Timer.scheduledTimer(
@@ -88,7 +86,6 @@ class GameViewController: UIViewController {
             selector: #selector(countDown),
             userInfo: nil,
             repeats: true)
-        
     }
     
     //1秒ごとにタイマーラベル更新
@@ -99,19 +96,29 @@ class GameViewController: UIViewController {
         
     }
     
-    //    //画面が見えるようになる時に呼ばれる
-    //    override func viewWillAppear(_ animated: Bool) {
-    //        super.viewWillAppear(animated)
-    //
-    //        soundManager.playBGM(fileName: "higedance")
-    //    }
-    //
+    //画面が見えるときに呼ばれる
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        for bubble in bubbleImageArray {
+            let boba = Bubble(imageView: bubble)
+            bubbleArray.append(boba)
+        }
+        
+        bubbleMove()
+    }
+    
     //画面が見えなくなるときに呼ばれる
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         soundManager.stopBGM()
+        //寝起きスコア
+        self.score = self.timeCount
+        self.scoreArray.append(self.score)
+        self.saveData.set(self.scoreArray, forKey: "scoreArray")
     }
-    //
+    
+    
     func bubbleMove(){
         
         if motionManager.isAccelerometerAvailable {
@@ -125,7 +132,6 @@ class GameViewController: UIViewController {
                 
                 //いくつのタピが残っているか記憶するArray
                 var memoryArray = [Int]()
-                
                 
                 for i in 0..<self.bubbleArray.count {
                     
@@ -141,6 +147,7 @@ class GameViewController: UIViewController {
                         memoryArray.append(i)
                     }
                     
+                    //bubbleに加速方向を付け足す
                     boba.imageView.center.x += boba.vx
                     boba.imageView.center.y += boba.vy
                     
@@ -178,17 +185,11 @@ class GameViewController: UIViewController {
                 if self.bubbleArray.count == 0 {
                     self.performSegue(withIdentifier: "toResult", sender: nil)
                     self.audioPlayer.stop()
-               
                 }
-                
-                //寝起きスコア
-                self.score = self.timeCount
-                self.scoreArray.append(self.score)
-                self.saveData.set(self.scoreArray, forKey: "scoreArray")
             }
         }
     }
-    
+
     //跳ね返しのクラス
     class Bubble {
         var imageView: UIImageView

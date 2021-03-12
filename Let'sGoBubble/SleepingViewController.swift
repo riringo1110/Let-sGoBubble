@@ -10,11 +10,30 @@ import UIKit
 class SleepingViewController: UIViewController {
     
     var currentTime = CurrentTime()
+    var alarm = Alarm()
+    
+    var selectedTime: String!
+    
+    let saveData: UserDefaults = UserDefaults.standard
     
     @IBOutlet var timeLabel: UILabel!
+    @IBOutlet var selectedTimeLabel: UILabel!
+    
+   
+    
+    override func viewDidAppear(_ animated: Bool) {
+            selectedTime = saveData.object(forKey: "SelectedTime") as? String
+       
+        }
+       
+    
     
     override func viewDidLoad() {
         currentTime.delegate = self
+        
+        if selectedTime != nil {
+        selectedTimeLabel.text = "YOUR ALARM \(String(selectedTime!))"
+        }
     }
     
     @IBAction func awake(_ sender: UIButton) {
