@@ -52,6 +52,8 @@ class GameViewController: UIViewController {
     var scoreArray = [Int]()
     let saveData: UserDefaults = UserDefaults.standard
     
+    var alarm = Alarm()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -71,13 +73,6 @@ class GameViewController: UIViewController {
             print("AVAudioPlayerインスタンス作成でエラー")
         }
         audioPlayer.prepareToPlay()
-        
-//        for bubble in bubbleImageArray {
-//            let boba = Bubble(imageView: bubble)
-//            bubbleArray.append(boba)
-//        }
-        
-//        bubbleMove()
         
         //timerの設定
         timer = Timer.scheduledTimer(
@@ -116,8 +111,10 @@ class GameViewController: UIViewController {
         self.score = self.timeCount
         self.scoreArray.append(self.score)
         self.saveData.set(self.scoreArray, forKey: "scoreArray")
+        
+        alarm.stopTimer()
+        stopAccelerometer()
     }
-    
     
     func bubbleMove(){
         
@@ -190,6 +187,12 @@ class GameViewController: UIViewController {
         }
     }
 
+    func stopAccelerometer(){
+           if (motionManager.isAccelerometerActive) {
+               motionManager.stopAccelerometerUpdates()
+           }
+       }
+    
     //跳ね返しのクラス
     class Bubble {
         var imageView: UIImageView

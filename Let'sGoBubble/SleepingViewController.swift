@@ -19,21 +19,14 @@ class SleepingViewController: UIViewController {
     @IBOutlet var timeLabel: UILabel!
     @IBOutlet var selectedTimeLabel: UILabel!
     
-   
-    
     override func viewDidAppear(_ animated: Bool) {
-            selectedTime = saveData.object(forKey: "SelectedTime") as? String
-       
+        selectedTime = saveData.object(forKey: "SelectedTime") as? String
+        selectedTimeLabel.text = "YOUR ALARM \(String(selectedTime))"
         }
        
-    
-    
     override func viewDidLoad() {
         currentTime.delegate = self
-        
-        if selectedTime != nil {
-        selectedTimeLabel.text = "YOUR ALARM \(String(selectedTime!))"
-        }
+
     }
     
     @IBAction func awake(_ sender: UIButton) {

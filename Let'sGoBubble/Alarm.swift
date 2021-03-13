@@ -42,6 +42,7 @@ class Alarm {
             soundManager.playBGM(fileName: "higedance")
         }
     }
+    
     //起きる時間までの秒数を計算
     private func calculateInterval(userAwakeTime:Date)-> Int{
         //タイマーの時間を計算する
@@ -65,9 +66,9 @@ class Alarm {
             sleepTimer?.invalidate()
             //タイマーにnil代入
             sleepTimer = nil
-        }else{
-            //タイマーを止める
-            audioPlayer.stop()
         }
+//        }else{
+//            audioPlayer.stop()
+//        }
     }
 }

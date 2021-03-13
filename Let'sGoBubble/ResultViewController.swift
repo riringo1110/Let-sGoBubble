@@ -16,8 +16,7 @@ class ResultViewController: UIViewController {
     
     var score: Int = 0
     var scoreArray = [Int]()
-    var latestScore: Int = 0
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,22 +27,30 @@ class ResultViewController: UIViewController {
         if saveData.object(forKey: "scoreArray") != nil {
             scoreArray = saveData.array(forKey: "scoreArray") as! [Int]
             resultLabel.text = String("\(scoreArray.last!)secs")
-        }
-        
-        if let penultimate = scoreArray.penultimate(){
-            latestLabel.text = String("YOUR LATEST TIME: \(penultimate)secs")
-            print(penultimate)
-            print(scoreArray)
+            
+            if let elementBeforeLast = scoreArray.elementBeforeLast {
+                print(elementBeforeLast)
+            }
+//            if let penultimate = scoreArray.penultimate(){
+//                latestLabel.text = String("YOUR LAST RESULT: \(penultimate)secs")
+//            print(penultimate)
+//            }
         }
     }
 }
 
-extension Array {
-    func penultimate() -> Element? {
-        if self.count < 2 {
-            return nil
-        }
-        let index = self.count - 2
-        return self[index]
+extension BidirectionalCollection {
+    var elementBeforeLast: Element? {
+        return dropLast().last
     }
 }
+
+//extension Array {
+//    func penultimate() -> Element? {
+//        if self.count < 2 {
+//            return nil
+//        }
+//        let index = self.count - 2
+//        return self[index]
+//    }
+//}

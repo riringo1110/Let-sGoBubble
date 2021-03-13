@@ -47,17 +47,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		E00137DA25E7F1B700003077 /* Let'sGoBubble.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Let'sGoBubble.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E00137DA25E7F1B700003077 /* WakeUpWithBubble.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WakeUpWithBubble.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E00137DD25E7F1B700003077 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E00137DF25E7F1B700003077 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		E00137E125E7F1B700003077 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E00137E425E7F1B700003077 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E00137E925E7F1B800003077 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E00137EB25E7F1B800003077 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E00137F025E7F1B800003077 /* Let'sGoBubbleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Let'sGoBubbleTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E00137F025E7F1B800003077 /* WakeUpWithBubbleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WakeUpWithBubbleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E00137F425E7F1B800003077 /* Let_sGoBubbleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Let_sGoBubbleTests.swift; sourceTree = "<group>"; };
 		E00137F625E7F1B800003077 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E00137FB25E7F1B800003077 /* Let'sGoBubbleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Let'sGoBubbleUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E00137FB25E7F1B800003077 /* WakeUpWithBubbleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WakeUpWithBubbleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E00137FF25E7F1B800003077 /* Let_sGoBubbleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Let_sGoBubbleUITests.swift; sourceTree = "<group>"; };
 		E001380125E7F1B800003077 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E001381325E7F3A100003077 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
@@ -116,9 +116,9 @@
 		E00137DB25E7F1B700003077 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E00137DA25E7F1B700003077 /* Let'sGoBubble.app */,
-				E00137F025E7F1B800003077 /* Let'sGoBubbleTests.xctest */,
-				E00137FB25E7F1B800003077 /* Let'sGoBubbleUITests.xctest */,
+				E00137DA25E7F1B700003077 /* WakeUpWithBubble.app */,
+				E00137F025E7F1B800003077 /* WakeUpWithBubbleTests.xctest */,
+				E00137FB25E7F1B800003077 /* WakeUpWithBubbleUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -186,9 +186,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E00137D925E7F1B700003077 /* Let'sGoBubble */ = {
+		E00137D925E7F1B700003077 /* WakeUpWithBubble */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E001380425E7F1B800003077 /* Build configuration list for PBXNativeTarget "Let'sGoBubble" */;
+			buildConfigurationList = E001380425E7F1B800003077 /* Build configuration list for PBXNativeTarget "WakeUpWithBubble" */;
 			buildPhases = (
 				E00137D625E7F1B700003077 /* Sources */,
 				E00137D725E7F1B700003077 /* Frameworks */,
@@ -198,14 +198,14 @@
 			);
 			dependencies = (
 			);
-			name = "Let'sGoBubble";
+			name = WakeUpWithBubble;
 			productName = "Let'sGoBubble";
-			productReference = E00137DA25E7F1B700003077 /* Let'sGoBubble.app */;
+			productReference = E00137DA25E7F1B700003077 /* WakeUpWithBubble.app */;
 			productType = "com.apple.product-type.application";
 		};
-		E00137EF25E7F1B800003077 /* Let'sGoBubbleTests */ = {
+		E00137EF25E7F1B800003077 /* WakeUpWithBubbleTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E001380725E7F1B800003077 /* Build configuration list for PBXNativeTarget "Let'sGoBubbleTests" */;
+			buildConfigurationList = E001380725E7F1B800003077 /* Build configuration list for PBXNativeTarget "WakeUpWithBubbleTests" */;
 			buildPhases = (
 				E00137EC25E7F1B800003077 /* Sources */,
 				E00137ED25E7F1B800003077 /* Frameworks */,
@@ -216,14 +216,14 @@
 			dependencies = (
 				E00137F225E7F1B800003077 /* PBXTargetDependency */,
 			);
-			name = "Let'sGoBubbleTests";
+			name = WakeUpWithBubbleTests;
 			productName = "Let'sGoBubbleTests";
-			productReference = E00137F025E7F1B800003077 /* Let'sGoBubbleTests.xctest */;
+			productReference = E00137F025E7F1B800003077 /* WakeUpWithBubbleTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		E00137FA25E7F1B800003077 /* Let'sGoBubbleUITests */ = {
+		E00137FA25E7F1B800003077 /* WakeUpWithBubbleUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E001380A25E7F1B800003077 /* Build configuration list for PBXNativeTarget "Let'sGoBubbleUITests" */;
+			buildConfigurationList = E001380A25E7F1B800003077 /* Build configuration list for PBXNativeTarget "WakeUpWithBubbleUITests" */;
 			buildPhases = (
 				E00137F725E7F1B800003077 /* Sources */,
 				E00137F825E7F1B800003077 /* Frameworks */,
@@ -234,9 +234,9 @@
 			dependencies = (
 				E00137FD25E7F1B800003077 /* PBXTargetDependency */,
 			);
-			name = "Let'sGoBubbleUITests";
+			name = WakeUpWithBubbleUITests;
 			productName = "Let'sGoBubbleUITests";
-			productReference = E00137FB25E7F1B800003077 /* Let'sGoBubbleUITests.xctest */;
+			productReference = E00137FB25E7F1B800003077 /* WakeUpWithBubbleUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -261,7 +261,7 @@
 					};
 				};
 			};
-			buildConfigurationList = E00137D525E7F1B700003077 /* Build configuration list for PBXProject "Let'sGoBubble" */;
+			buildConfigurationList = E00137D525E7F1B700003077 /* Build configuration list for PBXProject "WakeUpWithBubble" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -274,9 +274,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E00137D925E7F1B700003077 /* Let'sGoBubble */,
-				E00137EF25E7F1B800003077 /* Let'sGoBubbleTests */,
-				E00137FA25E7F1B800003077 /* Let'sGoBubbleUITests */,
+				E00137D925E7F1B700003077 /* WakeUpWithBubble */,
+				E00137EF25E7F1B800003077 /* WakeUpWithBubbleTests */,
+				E00137FA25E7F1B800003077 /* WakeUpWithBubbleUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -351,12 +351,12 @@
 /* Begin PBXTargetDependency section */
 		E00137F225E7F1B800003077 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = E00137D925E7F1B700003077 /* Let'sGoBubble */;
+			target = E00137D925E7F1B700003077 /* WakeUpWithBubble */;
 			targetProxy = E00137F125E7F1B800003077 /* PBXContainerItemProxy */;
 		};
 		E00137FD25E7F1B800003077 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = E00137D925E7F1B700003077 /* Let'sGoBubble */;
+			target = E00137D925E7F1B700003077 /* WakeUpWithBubble */;
 			targetProxy = E00137FC25E7F1B800003077 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -503,6 +503,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Let'sGoBubble/Let'sGoBubble.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BCAWDJZ7KK;
 				INFOPLIST_FILE = "Let'sGoBubble/Info.plist";
@@ -511,8 +512,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "app.Nagaishi.Ririko.Let-sGoBubble";
+				PRODUCT_BUNDLE_IDENTIFIER = app.Nagaishi.Ririko.WakeUpWithBubble;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_ENABLE_BATCH_MODE = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -525,6 +527,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Let'sGoBubble/Let'sGoBubble.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BCAWDJZ7KK;
 				INFOPLIST_FILE = "Let'sGoBubble/Info.plist";
@@ -533,8 +536,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "app.Nagaishi.Ririko.Let-sGoBubble";
+				PRODUCT_BUNDLE_IDENTIFIER = app.Nagaishi.Ririko.WakeUpWithBubble;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_ENABLE_BATCH_MODE = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -559,7 +563,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Let'sGoBubble.app/Let'sGoBubble";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WakeUpWithBubble.app/WakeUpWithBubble";
 			};
 			name = Debug;
 		};
@@ -581,7 +585,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Let'sGoBubble.app/Let'sGoBubble";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WakeUpWithBubble.app/WakeUpWithBubble";
 			};
 			name = Release;
 		};
@@ -628,7 +632,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E00137D525E7F1B700003077 /* Build configuration list for PBXProject "Let'sGoBubble" */ = {
+		E00137D525E7F1B700003077 /* Build configuration list for PBXProject "WakeUpWithBubble" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E001380225E7F1B800003077 /* Debug */,
@@ -637,7 +641,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E001380425E7F1B800003077 /* Build configuration list for PBXNativeTarget "Let'sGoBubble" */ = {
+		E001380425E7F1B800003077 /* Build configuration list for PBXNativeTarget "WakeUpWithBubble" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E001380525E7F1B800003077 /* Debug */,
@@ -646,7 +650,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E001380725E7F1B800003077 /* Build configuration list for PBXNativeTarget "Let'sGoBubbleTests" */ = {
+		E001380725E7F1B800003077 /* Build configuration list for PBXNativeTarget "WakeUpWithBubbleTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E001380825E7F1B800003077 /* Debug */,
@@ -655,7 +659,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E001380A25E7F1B800003077 /* Build configuration list for PBXNativeTarget "Let'sGoBubbleUITests" */ = {
+		E001380A25E7F1B800003077 /* Build configuration list for PBXNativeTarget "WakeUpWithBubbleUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E001380B25E7F1B800003077 /* Debug */,
